@@ -12,5 +12,11 @@ Vue.createApp({
     fullName() {
       return `${this.firstName} ${this.lastName}`;
     },
+    incrementAge() {
+      this.age++;
+    },
+    updateLastName(event) {
+      this.lastName = event.target.value;
+    },
   },
 }).mount("#app");

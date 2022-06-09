@@ -8,6 +8,11 @@
     <div id="app" v-cloak>
       <!-- <p v-html = "raw_url"> </p> -->
       <p> {{fullName()}}</p>
+      <p>{{age}}</p>
+      <!-- two ways to use v on click or @click-->
+      <button type="button" v-on:click="incrementAge"> Increase </button>
+      <button type="button" @click="age--"> Decrease </button>
+
       <!-- <p>
         <a v-bind:href = "url">
           <button>Click Me</button>
@@ -16,7 +21,8 @@
       <label>First Name</label>
       <input type = "text" v-model="firstName"></input>
       <label>Last Name</label>
-      <input type = "text" v-model="lastName"></input>
+      <!-- :value binds it like usestate and doesnt automaticly update-->
+      <input type = "text" :value="lastName" @input = "updateLastName"></input>
     </div>
 
     <script src="https://unpkg.com/vue@3"></script>
