@@ -2,6 +2,7 @@ Vue.createApp({
   data() {
     return {
       firstName: "John",
+      middleName: "",
       lastName: "Doe",
       url: "https://google.com",
       raw_url: "<a href='https://google.com'>Google</a>",
@@ -10,13 +11,19 @@ Vue.createApp({
   },
   methods: {
     fullName() {
-      return `${this.firstName} ${this.lastName}`;
+      return `${this.firstName} ${this.middleName} ${this.lastName}`;
     },
     incrementAge() {
       this.age++;
     },
-    updateLastName(event) {
-      this.lastName = event.target.value;
+    updateLastName(msg, event) {
+      // event.preventDefault();
+      // we added .prevent to the html tag
+      console.log(msg);
+      this.lastName = event.target.value.toUpperCase();
+    },
+    updateMiddleName(event) {
+      this.middleName = event.target.value;
     },
   },
 }).mount("#app");
